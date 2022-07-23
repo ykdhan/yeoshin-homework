@@ -1,5 +1,5 @@
 {
-  "name": "fastlane-homework",
+  "name": "yeoshin-homework",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "recoil": "^0.7.4",
+    "sass": "^1.54.0"
   }
 }

@@ -1,0 +1,73 @@
+@import './reset';
+
+$color-yeoshin: #ef5d9e;
+$color-white: #fff;
+$color-black: #494949;
+$color-black-strong: #191919;
+
+@mixin mobile {
+    @media only screen and (max-width: 660px) {
+        @content;
+    }    
+}
+
+.app {
+    padding: 80px 20px;
+    @include mobile { padding: 30px 14px; }
+}
+
+.issue {
+    width: 100%; max-width: 940px; margin: 0 auto;
+    font-size: 16px; line-height: 1.2; text-align: center;
+    @include mobile { font-size: 13px; }
+
+    &-header {
+        display: flex; padding-bottom: 36px;
+        font-weight: 700; color: $color-black-strong;
+        @include mobile { padding-bottom: 20px; }
+    }
+
+    &-list {
+        display: flex; flex-direction: column;
+    }
+
+    &-item {
+        display: flex; align-items: center; box-sizing: border-box; 
+        padding: 24px 0;
+        border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+        color: $color-black; opacity: 0.3;
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out, color 0.4s ease-out;
+        @include mobile { padding: 14px 0; }
+
+        + .issue-item { margin-top: -1px; }
+        &:first-child{ border-top: 0; }
+        &:last-child{ border-bottom: 0; }
+        &.show { opacity: 1; }
+        &:hover { color: $color-black-strong; transform: scale(1.02); }
+
+        span {
+            padding: 0 10px; box-sizing: border-box;
+            @include mobile { padding: 0 6px; }
+
+            &.id { font-weight: 700; letter-spacing: 0.05em; color: $color-yeoshin; }
+        }
+    }
+
+    .id {
+        width: 160px;
+        @include mobile { width: 110px; }
+    }
+    .title {
+        flex: 1;
+        white-space: nowrap; overflow: hidden;
+        text-align: left; text-overflow: ellipsis;
+    }
+    .created-at {
+        width: 200px;
+        @include mobile { width: 94px; }
+    }
+    .comments {
+        width: 100px;
+        @include mobile { width: 60px; }
+    }
+}
